@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      golang: 1.14
+  build:
+    commands:
+      - echo Now starting build phase
+      - go build cmd/ffservice/ffservice.go
+      - zip ffservice.zip ffservice
+artifacts:
+  files:
+    - ffservice.zip
+  name: ffservice-$(date +%F_%T)
